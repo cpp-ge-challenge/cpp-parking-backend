@@ -133,7 +133,7 @@ public class ParkingController extends Controller {
         //taken straight from documentation
         //https://www.playframework.com/documentation/2.5.x/JavaAkka#Creating-and-using-actors
         return FutureConverters.toJava(ask(clientManager, new CurrentStateRequest(), 1000)
-        ).thenApply(response -> ok((JsonNode) response));
+        ).thenApply(response -> ok(Json.toJson(response)));
     }
 
 

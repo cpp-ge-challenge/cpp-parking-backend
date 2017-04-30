@@ -111,7 +111,7 @@ public class ClientManager extends UntypedActor implements InjectedActorSupport 
             DiffUpdate diffUpdate = new DiffUpdate(lotName, newOccupancy);
             tellAllClients(diffUpdate);
         } else if (message instanceof CurrentStateRequest) {
-            getSender().tell(Json.toJson(allParkingLotState), getSelf());
+            getSender().tell(new HashMap<>(allParkingLotState), getSelf());
         } else if (message instanceof KeepAliveMessage) {
             tellAllClients(message);
         } else {
